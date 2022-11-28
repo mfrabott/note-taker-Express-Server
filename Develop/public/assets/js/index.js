@@ -4,6 +4,16 @@ let saveNoteBtn;
 let newNoteBtn;
 let noteList;
 
+if (window.location.pathname === '/index') {
+  startBtn = document.querySelector('.start-button');
+}
+
+const openApp = () =>
+  fetch('/api/notes', {
+    method: 'GET',
+  });
+
+
 if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
@@ -11,6 +21,8 @@ if (window.location.pathname === '/notes') {
   newNoteBtn = document.querySelector('.new-note');
   noteList = document.querySelectorAll('.list-container .list-group');
 }
+
+
 
 // Show an element
 const show = (elem) => {
@@ -71,6 +83,9 @@ const handleNoteSave = () => {
     title: noteTitle.value,
     text: noteText.value,
   };
+
+
+  console.log(newNote)
   saveNote(newNote).then(() => {
     getAndRenderNotes();
     renderActiveNote();
@@ -178,6 +193,10 @@ if (window.location.pathname === '/notes') {
   newNoteBtn.addEventListener('click', handleNewNoteView);
   noteTitle.addEventListener('keyup', handleRenderSaveBtn);
   noteText.addEventListener('keyup', handleRenderSaveBtn);
+}
+
+if (window.location.pathname === '/index') {
+  saveNoteBtn.addEventListener('click', openApp);
 }
 
 getAndRenderNotes();
