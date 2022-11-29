@@ -17,6 +17,10 @@ app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
+// app.delete('api/notes/:id', (req, res) =>  
+//   res.send('Got a DELETE request at /notes')
+// );
+
 // Wildcard directs user to the Index
 app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/index.html'))
