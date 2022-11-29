@@ -1,4 +1,5 @@
 const notes = require('express').Router();
+const { v4: uuidv4 } = require('uuid');
 
 const {
   readFromFile,
@@ -19,7 +20,8 @@ notes.post('/', (req, res) => {
     if (req.body) {
       const newNote = {
         title,
-        text
+        text,
+        id: uuidv4(),
       };
   
       readAndAppend(newNote, './db/db.json');
