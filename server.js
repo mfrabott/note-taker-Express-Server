@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3001
+const PORT = process.env.PORT || 3001
 const path = require('path');
-const api = require('../routes/index.js.js');
+const api = require('./routes/index.js');
 
 // Middleware
 app.use(express.json());
