@@ -4,10 +4,6 @@ let saveNoteBtn;
 let newNoteBtn;
 let noteList;
 
-if (window.location.pathname === '/index') {
-  startBtn = document.querySelector('.start-button');
-}
-
 const openApp = () =>
   fetch('/api/notes', {
     method: 'GET',
@@ -21,7 +17,6 @@ if (window.location.pathname === '/notes') {
   newNoteBtn = document.querySelector('.new-note');
   noteList = document.querySelectorAll('.list-container .list-group');
 }
-
 
 
 // Show an element
